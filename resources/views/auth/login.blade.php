@@ -1,8 +1,6 @@
 <x-guest-layout>
     <div class="text-center mb-6">
-        <svg class="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
+        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-16 w-auto mx-auto mb-3">
         <h2 class="text-2xl font-bold text-gray-800">Masuk</h2>
         <p class="text-sm text-gray-500 mt-1">Silakan masuk ke akun Anda</p>
     </div>

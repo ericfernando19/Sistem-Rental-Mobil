@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Dashboard') - Admin Rental Mobil</title>
+    <title>@yield('title', 'Dashboard') - Admin Rencar</title>
+    <link rel="icon" type="image/png" href="{{ asset('rencar.png') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -17,10 +18,7 @@
             <aside class="relative flex flex-col w-64 bg-blue-900 text-white">
                 <div class="flex items-center justify-between px-4 py-5 border-b border-blue-800">
                     <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-2">
-                        <svg class="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                        <span class="font-bold text-lg">Admin Panel</span>
+                        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-12 w-auto">
                     </a>
                     <button @click="sidebarOpen = false" class="md:hidden text-white/60 hover:text-white">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>

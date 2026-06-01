@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', config('app.name', 'Rental Mobil')) - Rental Mobil</title>
+    <title>@yield('title', config('app.name', 'Rencar')) - Rencar</title>
+    <link rel="icon" type="image/png" href="{{ asset('rencar.png') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -16,10 +17,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center space-x-2">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                        <span class="text-xl font-bold text-blue-600">Rental<span class="text-gray-800">Mobil</span></span>
+                        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-14 w-auto">
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
@@ -86,10 +84,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                        <span class="text-xl font-bold text-white">Rental<span class="text-blue-400">Mobil</span></span>
+                        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-12 w-auto">
                     </div>
                     <p class="text-gray-400 text-sm">Solusi sewa mobil terpercaya untuk perjalanan Anda. Dengan armada lengkap dan harga terbaik.</p>
                 </div>
@@ -120,7 +115,7 @@
                         </li>
                         <li class="flex items-center space-x-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <span>info@rentalmobil.com</span>
+                            <span>info@rencar.com</span>
                         </li>
                         <li class="flex items-center space-x-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -130,7 +125,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                &copy; {{ date('Y') }} RentalMobil. All rights reserved.
+                &copy; {{ date('Y') }} Rencar. All rights reserved.
             </div>
         </div>
     </footer>

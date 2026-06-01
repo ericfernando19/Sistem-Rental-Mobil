@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', config('app.name', 'Rental Mobil')) - Rental Mobil</title>
+    <title>@yield('title', config('app.name', 'Rencar')) - Rencar</title>
+    <link rel="icon" type="image/png" href="{{ asset('rencar.png') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -16,10 +17,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center space-x-2">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                        <span class="text-xl font-bold text-blue-600">Rental<span class="text-gray-800">Mobil</span></span>
+                        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-14 w-auto">
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
@@ -42,12 +40,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
-                    <span class="text-lg font-bold text-white">Rental<span class="text-blue-400">Mobil</span></span>
+                    <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-12 w-auto">
                 </div>
-                <p class="text-gray-500 text-sm">&copy; {{ date('Y') }} RentalMobil. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">&copy; {{ date('Y') }} Rencar. All rights reserved.</p>
             </div>
         </div>
     </footer>
