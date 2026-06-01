@@ -18,7 +18,7 @@
             <aside class="relative flex flex-col w-64 bg-blue-900 text-white">
                 <div class="flex items-center justify-between px-4 py-5 border-b border-blue-800">
                     <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-2">
-                        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-12 w-auto">
+                        <img src="{{ asset('rencar.png') }}" alt="Rencar" class="h-16 w-auto rounded-full border-2 border-white/30 bg-white p-1">
                     </a>
                     <button @click="sidebarOpen = false" class="md:hidden text-white/60 hover:text-white">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
