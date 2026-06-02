@@ -11,12 +11,12 @@
     </div>
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 -mt-6">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" x-data="bookingForm()">
             <div class="lg:col-span-2">
                 <div class="bg-white rounded-xl shadow-md p-6">
                     <h2 class="text-xl font-semibold mb-6">Form Booking</h2>
 
-                    <form action="{{ route('booking.store') }}" method="POST" x-data="bookingForm()">
+                    <form action="{{ route('booking.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="car_id" value="{{ $car->id }}">
                         <input type="hidden" name="price_per_day" value="{{ $car->price_per_day }}">
@@ -102,23 +102,7 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 text-sm" x-data="{
-                        pricePerDay: {{ $car->price_per_day }},
-                        driverPrice: 150000,
-                        get startDate() { return document.querySelector('[name=start_date]')?.value || ''; },
-                        get endDate() { return document.querySelector('[name=end_date]')?.value || ''; },
-                        get driverService() { return document.querySelector('[name=driver_service]')?.checked || false; },
-                        get totalDays() {
-                            if (!this.startDate || !this.endDate) return 0;
-                            const start = new Date(this.startDate);
-                            const end = new Date(this.endDate);
-                            const diff = Math.floor((end - start) / (1000 * 60 * 60 * 24));
-                            return diff >= 0 ? diff + 1 : 0;
-                        },
-                        get rentalPrice() { return this.totalDays * this.pricePerDay; },
-                        get driverTotal() { return this.driverService ? this.totalDays * this.driverPrice : 0; },
-                        get totalPrice() { return this.rentalPrice + this.driverTotal; }
-                    }">
+                    <div class="space-y-3 text-sm">
                         <div class="flex justify-between">
                             <span class="text-gray-500">Harga Sewa</span>
                             <span class="font-medium">Rp <span x-text="pricePerDay.toLocaleString('id-ID')"></span> /hari</span>
@@ -154,6 +138,18 @@ document.addEventListener('alpine:init', () => {
         startDate: '',
         endDate: '',
         driverService: false,
+        pricePerDay: {{ $car->price_per_day }},
+        driverPrice: 150000,
+        get totalDays() {
+            if (!this.startDate || !this.endDate) return 0;
+            const start = new Date(this.startDate);
+            const end = new Date(this.endDate);
+            const diff = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+            return diff >= 0 ? diff + 1 : 0;
+        },
+        get rentalPrice() { return this.totalDays * this.pricePerDay; },
+        get driverTotal() { return this.driverService ? this.totalDays * this.driverPrice : 0; },
+        get totalPrice() { return this.rentalPrice + this.driverTotal; },
     }));
 });
 </script>

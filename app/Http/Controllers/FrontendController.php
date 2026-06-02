@@ -39,17 +39,22 @@ class FrontendController extends Controller
 
     public function storeBooking(Request $request)
     {
-        $validated = $request->validate([
+        $rules = [
             'car_id' => 'required|exists:cars,id',
             'start_date' => 'required|date|after_or_equal:today',
             'end_date' => 'required|date|after:start_date',
             'driver_service' => 'boolean',
             'pickup_location' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:20',
             'notes' => 'nullable|string|max:1000',
-        ]);
+        ];
+
+        if (! auth()->check()) {
+            $rules['name'] = 'required|string|max:255';
+            $rules['email'] = 'required|email|max:255';
+            $rules['phone'] = 'required|string|max:20';
+        }
+
+        $validated = $request->validate($rules);
 
         $car = Car::findOrFail($validated['car_id']);
 
