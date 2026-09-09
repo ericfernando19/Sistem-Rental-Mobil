@@ -90,6 +90,8 @@
                         <div class="w-16 h-16 bg-gray-200 rounded-lg overflow-hidden">
                             @if($car->main_image)
                                 <img src="{{ asset('storage/' . $car->main_image) }}" class="w-full h-full object-cover">
+                            @elseif($car->images->first())
+                                <img src="{{ asset('storage/' . $car->images->first()->image) }}" class="w-full h-full object-cover">
                             @else
                                 <div class="w-full h-full bg-blue-100 flex items-center justify-center">
                                     <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>

@@ -65,6 +65,8 @@
                     <div class="relative h-48 bg-gray-200 overflow-hidden">
                         @if($car->main_image)
                             <img src="{{ asset('storage/' . $car->main_image) }}" alt="{{ $car->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        @elseif($car->images->first())
+                            <img src="{{ asset('storage/' . $car->images->first()->image) }}" alt="{{ $car->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                         @else
                             <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-600">
                                 <svg class="w-16 h-16 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">

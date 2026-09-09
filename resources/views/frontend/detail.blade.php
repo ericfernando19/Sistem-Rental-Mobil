@@ -16,6 +16,8 @@
                 <div class="bg-white rounded-xl shadow-md overflow-hidden">
                     @if($car->main_image)
                         <img src="{{ asset('storage/' . $car->main_image) }}" alt="{{ $car->name }}" class="w-full h-96 object-cover">
+                    @elseif($car->images->first())
+                        <img src="{{ asset('storage/' . $car->images->first()->image) }}" alt="{{ $car->name }}" class="w-full h-96 object-cover">
                     @else
                         <div class="w-full h-96 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
                             <svg class="w-24 h-24 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">

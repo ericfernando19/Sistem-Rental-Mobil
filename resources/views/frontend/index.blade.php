@@ -80,6 +80,9 @@
                             @if ($car->main_image)
                                 <img src="{{ asset('storage/' . $car->main_image) }}" alt="{{ $car->name }}"
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            @elseif($car->images->first())
+                                <img src="{{ asset('storage/' . $car->images->first()->image) }}" alt="{{ $car->name }}"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                             @else
                                 <div
                                     class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-600">
