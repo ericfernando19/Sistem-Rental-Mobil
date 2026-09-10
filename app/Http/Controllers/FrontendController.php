@@ -23,8 +23,16 @@ class FrontendController extends Controller
     public function catalog(Request $request)
     {
         $cars = Car::query()->filter($request->all())->latest()->paginate(9);
+        $resultsHtml = view('frontend.catalog-partial', compact('cars'))->render();
 
-        return view('frontend.catalog', compact('cars'));
+        return view('frontend.catalog', compact('cars', 'resultsHtml'));
+    }
+
+    public function catalogSearch(Request $request)
+    {
+        $cars = Car::query()->filter($request->all())->latest()->paginate(9);
+
+        return view('frontend.catalog-partial', compact('cars'));
     }
 
     public function detail(Car $car)

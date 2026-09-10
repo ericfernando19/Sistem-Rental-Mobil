@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
+Route::get('/catalog/search', [FrontendController::class, 'catalogSearch'])->name('catalog.search');
 Route::get('/car/{car}', [FrontendController::class, 'detail'])->name('detail');
 
 Route::middleware('auth')->group(function () {
