@@ -22,10 +22,10 @@ class ReportController extends Controller
             $query->where('booking_status', $request->status);
         }
 
-        $bookings = $query->latest()->get();
+        $totalRevenue = (clone $query)->whereIn('booking_status', ['completed', 'confirmed', 'in_progress'])->sum('total_price');
+        $totalBookings = (clone $query)->count();
 
-        $totalRevenue = $bookings->whereIn('booking_status', ['completed', 'confirmed', 'in_progress'])->sum('total_price');
-        $totalBookings = $bookings->count();
+        $bookings = $query->latest()->paginate(10)->withQueryString();
 
         return view('admin.reports.index', compact('bookings', 'totalRevenue', 'totalBookings'));
     }
