@@ -33,11 +33,12 @@ class Car extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        $query->when($filters['search'] ?? null, fn ($q, $v) => $q->where('name', 'like', "%{$v}%")->orWhere('brand', 'like', "%{$v}%")
+        $query->when($filters['search'] ?? null, fn ($q, $v) => $q->where(function ($q) use ($v) {
+                $q->where('name', 'like', "%{$v}%")
+                  ->orWhere('brand', 'like', "%{$v}%");
+            })
         )->when($filters['transmission'] ?? null, fn ($q, $v) => $q->where('transmission', $v)
         )->when($filters['capacity'] ?? null, fn ($q, $v) => $q->where('passenger_capacity', $v)
-        )->when($filters['min_price'] ?? null, fn ($q, $v) => $q->where('price_per_day', '>=', $v)
-        )->when($filters['max_price'] ?? null, fn ($q, $v) => $q->where('price_per_day', '<=', $v)
         );
     }
 }
